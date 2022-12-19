@@ -135,6 +135,7 @@ class GameClass
         }
     }
 
+    // This should be moved somewhere separate
     private function formatPrint(array $format = [], string $text = '')
     {
         $codes = [

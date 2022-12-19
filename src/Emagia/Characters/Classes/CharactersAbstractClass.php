@@ -7,6 +7,7 @@ use Emagia\Characters\Exceptions\CharacterException;
 
 /**
  * Created an abstract class instead of an interface because of the use of methods and properties
+ * let's say because it let us have some degree of implementation
  * @property int $id
  * @property string $characterName
  * @property int $health
