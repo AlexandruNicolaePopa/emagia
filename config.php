@@ -1,12 +1,20 @@
 <?php
 
-declare(strict_types=1);
+use Dotenv\Dotenv;
 
 require_once('vendor/autoload.php');
+class Config
+{
+    public string $dbName;
+    public string $dbUserName;
+    public string $dbPassword;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$dbName = $_ENV['DB_DATABASE'];
-$dbUserName = $_ENV['DB_USERNAME'];
-$dbPassword = $_ENV['DB_PASSWORD'];
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+        $this->dbName = $_ENV['DB_DATABASE'];
+        $this->dbUserName = $_ENV['DB_USERNAME'];
+        $this->dbPassword = $_ENV['DB_PASSWORD'];
+    }
+}

@@ -1,20 +1,19 @@
 <?php
+
+use Emagia\Game\Classes\GameHelperClass as GameHelper;
+use Emagia\Game\Classes\GameClass as Game;
+use Assert\AssertionFailedException;
+
+require_once('vendor/autoload.php');
 require_once('config.php');
 
+$gameHelper = new GameHelper();
+
 try {
-    echo 'Current PHP version: ' . phpversion();
-    echo '<br />';
-
-    $host = 'db';
-    $dbname = $dbName;
-    $user = $dbUserName;
-    $pass = $dbPassword;
-    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
-    $conn = new PDO($dsn, $user, $pass);
-
-    echo 'Database connected successfully';
-    echo '<br />';
-} catch (\Throwable $t) {
-    echo 'Error: ' . $t->getMessage();
-    echo '<br />';
+    $characters = $gameHelper->getCharacters();
+} catch (AssertionFailedException $e) {
+    print_r($e->getMessage());
 }
+
+$game = new Game($characters);
+$game->startGame();
