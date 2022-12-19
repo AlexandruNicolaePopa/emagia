@@ -41,6 +41,13 @@ Or if you didn't run the seeders you can type in the following to observe if the
 `DESCRIBE characters;`
 
 
+## Running the game
+
+From the root folder of the application run:
+
+`php console.php`
+
+
 ## Tests
 
 In order to execute the tests run the following command:
